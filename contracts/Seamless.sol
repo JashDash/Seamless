@@ -20,11 +20,6 @@ contract Seamless {
         owner = payable(msg.sender);
     }
 
-    function getOwner() public view returns (address) {
-        console.log("here");
-        return owner;
-    }
-
     function awardScore(uint _runs, uint _points, address _to) internal returns (ScoreCard memory) {
         scores[_to].runs += _runs;
         scores[_to].points += _points;
@@ -34,7 +29,7 @@ contract Seamless {
 
     function performActivity(address _user, string memory _activityName, uint _runs, uint _points) public returns (ScoreCard memory) {
         emit Activity(_user, _activityName, _runs, _points);
-
+        
         ScoreCard memory updatedScoreCard = awardScore(_runs, _points, _user);
         return updatedScoreCard;
     }
