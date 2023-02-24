@@ -44,7 +44,7 @@ export default function DashboardComp() {
                     />
                     <CardContent>
                         <Typography variant="h3" color="primary">
-                        458
+                        459
                         </Typography>
                         <Typography variant="body2" color="text.secondary">
                         RUNS
