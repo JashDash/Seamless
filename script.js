@@ -1,5 +1,5 @@
 const fs = require("fs");
-const leaderboard = require("./leaderboard.json");
+const leaderboard = require("./data.json").leaderboard;
 
 const el = { runs: 25, address: "0x3" };
 
@@ -23,6 +23,10 @@ const calculateLeaderboard = (el) => {
 
 calculateLeaderboard(el);
 
-fs.writeFile("leaderboard.json", JSON.stringify(leaderboard), (error) => {
-  if (error) throw error;
-});
+fs.writeFile(
+  "data.json",
+  JSON.stringify({ leaderboard: leaderboard }),
+  (error) => {
+    if (error) throw error;
+  }
+);
